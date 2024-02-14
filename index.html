@@ -1,26 +1,108 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title></title>
-        <meta name="description" content="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" href="favicon.ico">
+    <title></title>
+    <meta name="description" content="">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/html5-boilerplate.css">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <body>
-        <p>Hello Front Row Viewers!</p>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/html5-boilerplate.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
 
+<body>
+    <form>
+        <label for="boyName">Boy Name:</label>
+        <input type="text" id="boyName" name="boyName"><br><br>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+        <label for="girlName">Girl Name:</label>
+        <input type="text" id="girlName" name="girlName"><br><br>
+
+        <input type="submit" value="Submit" onclick="flame()">
+    </form>
+
+    <script>
+        
+        function flame() {
+
+            var a = document.getElementById("boyName").value;
+            var b = document.getElementById("girlName").value;
+            let i, j, k, l = 1, n, m, sc = 0, tc, rc = 0, fc = 5;
+            let c;
+            let f = "flames";
+
+            let q = a.join("")
+            let w = b.join("")
+            n = a.length;
+            m = b.length;
+            tc = n + m;
+
+            for (i = 0; i < n; i++) {
+                c = a[i];
+                for (j = 0; j < m; j++) {
+                    if (c == b[j]) {
+                        a[i] = -1;
+                        b[j] = -1;
+                        sc = sc + 2;
+                        break;
+                    }
+                }
+            }
+
+            rc = tc - sc;
+
+            for (i = 0; ; i++) {
+                if (l == (rc)) {
+                    for (k = i; k < f.length; k++) {
+                        f[k] = f[k + 1];
+                    }
+                    f[k + 1] = '\0';
+                    fc = fc - 1;
+                    i = i - 1;
+                    l = 0;
+                }
+                if (i == fc) {
+                    i = -1;
+                }
+                if (fc == 0) {
+                    break;
+                }
+                l++;
+            }
+
+            // Print the results
+            if (f[0] == 'e')
+                document.write(q + " is ENEMY to " + w);
+
+            else if (f[0] == 'f')
+                document.write(q + " is FRIEND to " + w);
+
+            else if (f[0] == 'm')
+                document.write(q + " is going to MARRY " + w);
+
+            else if (f[0] == 'l')
+                document.write(q + " is in LOVE with " + w);
+
+            else if (f[0] == 'a')
+                document.write(q + " has more AFFECTION on " + w);
+
+            else
+                document.write(q + " and " < +w + " are SISTERS/BROTHERS ");
+
+        }
+
+        // This code is contributed by unknown2108.
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
 </html>
